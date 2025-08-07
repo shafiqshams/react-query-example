@@ -14,6 +14,9 @@ export const DemoReactQuery = () => {
 
   const { mutateAsync: addTodoMutation } = useMutation({
     mutationFn: addTodo,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["todos"] });
+    },
   });
 
   const handleAddTodo = async () => {
