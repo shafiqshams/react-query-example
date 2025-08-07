@@ -5,8 +5,9 @@ import type { Todo } from "../types/Todo";
 
 export const fetchTodos = async (searchQuery: string = "") => {
   //Simulate actual fetching from the API
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+  await new Promise((resolve) => setTimeout(resolve, 100));
 
+  console.log("Fetching Todos");
   const filteredTodos = todos.filter((todo) =>
     todo.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
@@ -16,7 +17,7 @@ export const fetchTodos = async (searchQuery: string = "") => {
 
 export const addTodo = async (todo: Pick<Todo, "title">): Promise<Todo> => {
   //Simulate actual fetching from the API
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+  await new Promise((resolve) => setTimeout(resolve, 100));
 
   const newTodo: Todo = {
     id: todos.length + 1,
