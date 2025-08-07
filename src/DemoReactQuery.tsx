@@ -40,7 +40,9 @@ export const DemoReactQuery = () => {
         onChange={(e) => setTitle(e.target.value)}
       />
 
-      <button onClick={handleAddTodo}>Add Todo</button>
+      <button onClick={handleAddTodo} disabled={!title.length}>
+        Add Todo
+      </button>
 
       {todos?.map((todo) => {
         return <TodoCard key={todo.id} todo={todo} />;
