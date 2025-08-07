@@ -3,7 +3,7 @@ import { fetchTodos } from "./api/todos";
 import { TodoCard } from "./components/TodoCard";
 
 export const DemoReactQuery = () => {
-  const { data: todos } = useQuery({
+  const { data: todos, isLoading } = useQuery({
     queryFn: () => fetchTodos(),
     queryKey: ["todos"],
   });
@@ -11,9 +11,14 @@ export const DemoReactQuery = () => {
   return (
     <div className="container">
       <h2>DemoReactQuery</h2>
-      {todos?.map((todo) => {
-        return <TodoCard key={todo.id} todo={todo} />;
-      })}
+
+      {isLoading ? (
+        <h3>Loading...</h3>
+      ) : (
+        todos?.map((todo) => {
+          return <TodoCard key={todo.id} todo={todo} />;
+        })
+      )}
     </div>
   );
 };
