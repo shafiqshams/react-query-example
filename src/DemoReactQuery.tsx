@@ -10,6 +10,8 @@ export const DemoReactQuery = () => {
   const { data: todos, isLoading } = useQuery({
     queryFn: () => fetchTodos(),
     queryKey: ["todos"],
+    staleTime: Infinity,
+    // gcTime: 0, never cache the data at all, and always fetch new data
   });
 
   const { mutateAsync: addTodoMutation } = useMutation({
