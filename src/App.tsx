@@ -1,10 +1,15 @@
 import "./App.css";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { DemoReactQuery } from "./DemoReactQuery";
+
+const queryClient = new QueryClient();
 
 function App() {
   return (
-    <div>
-      <p>Hello World</p>
-    </div>
+    // To use this query client anywhere in the app through this context
+    <QueryClientProvider client={queryClient}>
+      <DemoReactQuery />
+    </QueryClientProvider>
   );
 }
 
