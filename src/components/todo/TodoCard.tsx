@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { Todo } from "../types/Todo";
+import type { Todo } from "../../types/Todo";
 
 export const TodoCard = ({ todo }: { todo: Todo }) => {
   const [checked, setChecked] = useState(todo.completed);
