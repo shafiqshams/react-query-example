@@ -34,21 +34,24 @@ export const DemoReactQuery = () => {
 
   return (
     <div className="container">
-      <h2>DemoReactQuery</h2>
-      <input
-        type="text"
-        value={title}
-        placeholder="Write your todo"
-        onChange={(e) => setTitle(e.target.value)}
-      />
+      <h2>Demo React Query</h2>
+      <div className="input-todo">
+        <input
+          type="text"
+          value={title}
+          placeholder="Write your todo"
+          onChange={(e) => setTitle(e.target.value)}
+        />
 
-      <button onClick={handleAddTodo} disabled={!title.length}>
-        Add Todo
-      </button>
-
-      {todos?.map((todo) => {
-        return <TodoCard key={todo.id} todo={todo} />;
-      })}
+        <button onClick={handleAddTodo} disabled={!title.length}>
+          Add Todo
+        </button>
+      </div>
+      <div className="todo-list">
+        {todos?.map((todo) => {
+          return <TodoCard key={todo.id} todo={todo} />;
+        })}
+      </div>
     </div>
   );
 };
