@@ -11,10 +11,12 @@ function App() {
   return (
     // To use this query client anywhere in the app through this context
     <QueryClientProvider client={queryClient}>
-      <div className="button-wrapper">
-        <button onClick={() => setShowDemo(!showDemo)}>Toggle Demo</button>
+      <div className="app-container">
+        <div className="button-wrapper">
+          <button onClick={() => setShowDemo(!showDemo)}>Toggle Demo</button>
+        </div>
+        {showDemo && <DemoReactQuery />}
       </div>
-      {showDemo && <DemoReactQuery />}
     </QueryClientProvider>
   );
 }
