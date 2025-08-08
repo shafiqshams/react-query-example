@@ -1,22 +1,14 @@
 import "./App.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { DemoReactQuery } from "./DemoReactQuery";
-import { useState } from "react";
+import { ToggleDemo } from "./components/ToggleDemo";
 
 const queryClient = new QueryClient();
 
 function App() {
-  //Added for component mount & unmount
-  const [showDemo, setShowDemo] = useState(true);
   return (
     // To use this query client anywhere in the app through this context
     <QueryClientProvider client={queryClient}>
-      <div className="app-container">
-        <div className="button-wrapper">
-          <button onClick={() => setShowDemo(!showDemo)}>Toggle Demo</button>
-        </div>
-        {showDemo && <DemoReactQuery />}
-      </div>
+      <ToggleDemo />
     </QueryClientProvider>
   );
 }
