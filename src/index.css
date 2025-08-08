@@ -1,7 +1,47 @@
+/* === Global Reset ===
+
+/* 1. Set box-sizing to border-box everywhere */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin & padding */
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* 3. Make body take full height */
 html,
 body,
 #root {
   height: 100%;
-  margin: 0;
-  padding: 0;
 }
+
+/* 4. Set a base font family & smooth rendering */
+body {
+  font-family: Consolas, monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 5. Make images and media scale nicely */
+img,
+picture,
+video,
+canvas,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 6. Remove default button/input styles (optional) */
+button,
+input,
+textarea,
+select {
+  font: inherit;
+} */
