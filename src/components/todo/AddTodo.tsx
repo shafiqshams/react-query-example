@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { useReactQuery } from "../../hooks/useReactQuery";
+import { useAddTodo } from "../../hooks/useTodoQuery";
 
 export const AddTodo = () => {
   const [title, setTitle] = useState("");
-  const { addTodoMutation } = useReactQuery();
+  const { mutateAsync: addTodo, isPending } = useAddTodo();
 
   const handleAddTodo = async () => {
     try {
-      await addTodoMutation({ title });
+      await addTodo({ title });
       setTitle("");
     } catch (err) {
       console.error(err);
@@ -23,8 +23,8 @@ export const AddTodo = () => {
         onChange={(e) => setTitle(e.target.value)}
       />
 
-      <button onClick={handleAddTodo} disabled={!title.length}>
-        Add Todo
+      <button onClick={handleAddTodo} disabled={!title.length || isPending}>
+        {isPending ? "Adding ..." : "Add Todo"}
       </button>
     </div>
   );
