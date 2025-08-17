@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { DemoReactQuery } from "./DemoReactQuery";
+import { TodoReactQuery } from "./TodoReactQuery";
 
 export const ToggleDemo = () => {
   //Added for component mount & unmount
@@ -7,9 +7,9 @@ export const ToggleDemo = () => {
   return (
     <div className="app-container">
       <div className="button-wrapper">
-        <button onClick={() => setShowDemo(!showDemo)}>Toggle Demo</button>
+        <button onClick={() => setShowDemo(!showDemo)}>Toggle Todos</button>
       </div>
-      {showDemo && <DemoReactQuery />}
+      {showDemo && <TodoReactQuery />}
     </div>
   );
 };
