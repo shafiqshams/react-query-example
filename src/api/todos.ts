@@ -10,7 +10,10 @@ export type TodoResponse = {
 
 export const fetchTodos = () => request<TodoResponse>("/todos");
 
-//TODO: Refactor
+type TodoWithUserId = Todo & {
+  userId: number;
+};
+
 export const postTodo = async (title: string): Promise<Todo> => {
   const todo: Todo = {
     id: Date.now(),
