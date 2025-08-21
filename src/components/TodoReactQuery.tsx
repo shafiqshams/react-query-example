@@ -1,4 +1,5 @@
 import { useTodos } from "../hooks/useTodoQuery";
+import { AddTodo } from "./todo/AddTodo";
 import { TodoList } from "./todo/TodoList";
 export const TodoReactQuery = () => {
   const { data, isLoading, isError } = useTodos();
@@ -9,6 +10,7 @@ export const TodoReactQuery = () => {
   return (
     <div className="container">
       <h2>Todo React Query</h2>
+      <AddTodo />
       {data && <TodoList todos={data.todos} />}
     </div>
   );
