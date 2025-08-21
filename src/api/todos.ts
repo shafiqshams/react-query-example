@@ -1,5 +1,5 @@
 import { request } from "../lib/request";
-import type { Todo } from "../types/Todo";
+import type { PostTodo, Todo } from "../types/Todo";
 
 export type TodoResponse = {
   todos: Todo[];
@@ -10,22 +10,9 @@ export type TodoResponse = {
 
 export const fetchTodos = () => request<TodoResponse>("/todos");
 
-type TodoWithUserId = Todo & {
-  userId: number;
-};
-
-export const postTodo = async (title: string): Promise<Todo> => {
-  const todo: TodoWithUserId = {
-    id: Date.now(),
-    todo: title,
-    completed: false,
-    userId: Math.floor(Math.random() * 10) + 1,
-  };
-
-  const newTodo: Todo = await request("/todos/add", {
+export const postTodo = (todoToPost: PostTodo): Promise<Todo> => {
+  return request("/todos/add", {
     method: "POST",
-    body: JSON.stringify(todo),
+    body: JSON.stringify(todoToPost),
   });
-
-  return newTodo;
 };
