@@ -1,4 +1,4 @@
-import { fetcher } from "../lib/fetcher";
+import { request } from "../lib/request";
 import type { Todo } from "../types/Todo";
 
 export type TodoResponse = {
@@ -8,7 +8,7 @@ export type TodoResponse = {
   limit: number;
 };
 
-export const fetchTodos = () => fetcher<TodoResponse>("/todos");
+export const fetchTodos = () => request<TodoResponse>("/todos");
 
 //TODO: Refactor
 export const postTodo = async (title: string): Promise<Todo> => {
@@ -19,7 +19,7 @@ export const postTodo = async (title: string): Promise<Todo> => {
     // userId: Math.random(1,2)
   };
 
-  const newTodo: Todo = await fetcher("/todos/add", {
+  const newTodo: Todo = await request("/todos/add", {
     method: "POST",
     body: JSON.stringify({ ...todo, userId: 5 }),
   });
