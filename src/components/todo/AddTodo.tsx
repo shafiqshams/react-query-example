@@ -4,7 +4,7 @@ import type { PostTodo } from "../../types/Todo";
 
 export const AddTodo = () => {
   const [title, setTitle] = useState("");
-  const { mutateAsync: postTodo, isPending } = useAddTodo();
+  const { mutateAsync: postTodo, isPending, isError } = useAddTodo();
 
   const handleAddTodo = async () => {
     const newTodo: PostTodo = {
@@ -16,10 +16,6 @@ export const AddTodo = () => {
 
     await postTodo(newTodo);
       setTitle("");
-    } catch (err) {
-      //TODO: update error handling
-      console.error(err);
-    }
   };
 
   return (
