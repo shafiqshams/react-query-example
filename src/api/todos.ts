@@ -16,7 +16,7 @@ export const postTodo = async (title: string): Promise<Todo> => {
     id: Date.now(),
     todo: title,
     completed: false,
-    // userId: Math.random(1,2)
+    userId: Math.floor(Math.random() * 10) + 1,
   };
 
   const newTodo: Todo = await request("/todos/add", {
