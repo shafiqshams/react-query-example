@@ -1,13 +1,20 @@
 import { useState } from "react";
 import { useAddTodo } from "../../hooks/useTodoQuery";
+import type { PostTodo } from "../../types/Todo";
 
 export const AddTodo = () => {
   const [title, setTitle] = useState("");
   const { mutateAsync: postTodo, isPending } = useAddTodo();
 
   const handleAddTodo = async () => {
-    try {
-      await postTodo(title);
+    const newTodo: PostTodo = {
+      id: Date.now(),
+      todo: title,
+      completed: false,
+      userId: Math.floor(Math.random() * 10) + 1,
+    };
+
+    await postTodo(newTodo);
       setTitle("");
     } catch (err) {
       //TODO: update error handling
