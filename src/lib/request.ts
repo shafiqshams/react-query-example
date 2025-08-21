@@ -1,6 +1,6 @@
 import { BASE_URL } from "./config";
 
-export async function fetcher<T>(
+export async function request<T>(
   path: string,
   options?: RequestInit
 ): Promise<T> {
