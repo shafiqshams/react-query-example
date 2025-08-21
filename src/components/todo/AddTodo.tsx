@@ -3,13 +3,14 @@ import { useAddTodo } from "../../hooks/useTodoQuery";
 
 export const AddTodo = () => {
   const [title, setTitle] = useState("");
-  const { mutateAsync: addTodo, isPending } = useAddTodo();
+  const { mutateAsync: postTodo, isPending } = useAddTodo();
 
   const handleAddTodo = async () => {
     try {
-      await addTodo({ title });
+      await postTodo(title);
       setTitle("");
     } catch (err) {
+      //TODO: update error handling
       console.error(err);
     }
   };
