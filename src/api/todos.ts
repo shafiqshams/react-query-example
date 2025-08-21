@@ -15,7 +15,7 @@ type TodoWithUserId = Todo & {
 };
 
 export const postTodo = async (title: string): Promise<Todo> => {
-  const todo: Todo = {
+  const todo: TodoWithUserId = {
     id: Date.now(),
     todo: title,
     completed: false,
