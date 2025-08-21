@@ -3,3 +3,9 @@ export type Todo = {
   todo: string;
   completed: boolean;
 };
+
+type TodoWithUserId = Todo & {
+  userId: number;
+};
+
+export type PostTodo = TodoWithUserId;
