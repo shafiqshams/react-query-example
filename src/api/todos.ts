@@ -21,7 +21,7 @@ export const postTodo = async (title: string): Promise<Todo> => {
 
   const newTodo: Todo = await request("/todos/add", {
     method: "POST",
-    body: JSON.stringify({ ...todo, userId: 5 }),
+    body: JSON.stringify(todo),
   });
 
   return newTodo;
